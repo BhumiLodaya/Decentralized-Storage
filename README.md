@@ -226,3 +226,6 @@ encryption_key = config["encryption_key"]
 ```
 
 
+<img width="1919" height="912" alt="Screenshot 2026-02-10 121924" src="https://github.com/user-attachments/assets/2bcf85dd-c51b-4930-99e6-33fd028696be" />
+<img width="1916" height="911" alt="image" src="https://github.com/user-attachments/assets/08748f11-bc77-4c92-b03d-53c7aee5f80c" />
+
