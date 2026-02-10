@@ -212,7 +212,7 @@ The system uses a configuration file to store the encryption key and other setti
 
 ### File: `config.json`
 {
-  "encryption_key": "ra0vMt_JUZRjC-R7yWaTsXn15g7zxNbBAorMUENjijY=",  // ⚠️ EXPOSED!
+  "encryption_key": " "  
   "node_count": 5,
   "shard_count": 3
 }
@@ -224,4 +224,5 @@ from config import config
 # Use the encryption key from config.json
 encryption_key = config["encryption_key"]
 ```
+
 
