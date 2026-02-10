@@ -1,4 +1,47 @@
-# Decentralized Storage System - Quick Start Guide
+# 🛡️ Decentralized Vault: Secure, Sharded Storage System
+
+A high-performance, fault-tolerant distributed storage platform that utilizes **Zero-Knowledge Encryption** and **Reed-Solomon Erasure Coding** to ensure data stays private and available—even if multiple storage nodes fail.
+
+---
+
+## 🚀 Overview
+Most storage systems rely on simple replication (making multiple copies), which is inefficient. **Decentralized Vault** splits files into "mathematical shards." Using a **(3, 5) configuration**, the system can reconstruct your original file from any 3 shards, meaning it survives a **40% node failure rate** while only using **1.6x** storage overhead.
+
+## 🏗️ Core Architecture (The CIA Triad)
+This project was designed with the **CIA Triad** (Confidentiality, Integrity, Availability) as the core requirement:
+
+| Principle | Technical Implementation |
+| :--- | :--- |
+| **Confidentiality** | **Zero-Knowledge:** Files are encrypted via **AES-128 (Fernet)** on the client-side gateway before distribution. Nodes never see raw data. |
+| **Integrity** | **Cryptographic Fingerprinting:** Every shard is hashed using **SHA-256**. The Orchestrator verifies these hashes during retrieval to detect and reject tampered data. |
+| **Availability** | **Fault Tolerance:** Powered by **zfec (Reed-Solomon)**. Data is distributed across 5 independent nodes. The system remains 100% operational with 2 nodes offline. |
+
+
+
+---
+
+## 🛠️ Tech Stack
+- **Backend:** Python 3.10+, FastAPI (Asynchronous Gateway & Nodes)
+- **Frontend:** React, Tailwind CSS, Lucide Icons
+- **Encryption:** Cryptography.io (Fernet/AES)
+- **Math Engine:** Reed-Solomon Erasure Coding (`zfec`)
+- **Networking:** `httpx` (Asynchronous HTTP requests)
+
+---
+
+## 📂 Project Structure
+```text
+.
+├── gateway/
+│   ├── main.py              # FastAPI Gateway API
+│   ├── orchestrator.py      # Sharding & Node coordination logic
+│   └── engine.py            # Encryption & Reed-Solomon engine
+├── nodes/
+│   └── node.py              # Storage Node worker script
+├── frontend/
+│   └── src/                 # React + Tailwind Dashboard
+├── metadata/                # Encrypted file manifests
+└── storage/                 # Distributed shard directories (Node_1...Node_5)
 
 ## Prerequisites
 All dependencies should already be installed:
@@ -181,3 +224,4 @@ from config import config
 # Use the encryption key from config.json
 encryption_key = config["encryption_key"]
 ```
+
