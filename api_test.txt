@@ -1,0 +1,1 @@
+This file was uploaded via the FastAPI Gateway! Testing decentralized storage with React integration.
